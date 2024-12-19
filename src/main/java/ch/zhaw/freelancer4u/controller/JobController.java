@@ -1,7 +1,5 @@
 package ch.zhaw.freelancer4u.controller;
 
-import org.springframework.ai.chat.prompt.Prompt;
-import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,9 +32,7 @@ public class JobController {
 
     @Autowired
     RoleService roleService;
-    
-    @Autowired
-    OpenAiChatModel chatModel;
+   
 
     @PostMapping("/job")
     public ResponseEntity<Job> createJob(@RequestBody JobCreateDTO cDTO) {
@@ -47,11 +43,9 @@ public class JobController {
         if (!companyService.companyExists(cDTO.getCompanyId())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        var generatedTitle = chatModel.call(new Prompt("Erstelle einen kurzen Titel für den Job mit der Beschreibung:  " + cDTO.getDescription()));
-        var title = generatedTitle.getResult().getOutput().getContent();
-        Job jDAO = new Job(title, cDTO.getDescription(), cDTO.getJobType(), cDTO.getEarnings(), cDTO.getCompanyId());
-        Job j = jobRepository.save(jDAO);
-        return new ResponseEntity<>(j, HttpStatus.CREATED);
+        
+    
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/job")

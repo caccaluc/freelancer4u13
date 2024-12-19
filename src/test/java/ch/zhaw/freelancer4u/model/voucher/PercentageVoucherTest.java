@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ch.zhaw.freelancer4u.model.Job;
 import ch.zhaw.freelancer4u.model.JobType;
 
-// XXX Aufgabe 6b)
+//  Aufgabe 6b)
 public class PercentageVoucherTest {
 
     @Test
@@ -41,7 +41,7 @@ public class PercentageVoucherTest {
         assertEquals(49.98, voucher.getDiscount(Arrays.asList(job1, job2)), 0.01);
     }
 
-    // XXX Aufgabe 7c)
+    // Aufgabe 7c)
     @Test
     public void testVoucher_withJobs_Mock() {
         var voucher = new PercentageVoucher(42);
@@ -54,7 +54,7 @@ public class PercentageVoucherTest {
         assertEquals(49.98, voucher.getDiscount(Arrays.asList(job1, job2)), 0.01);
     }
 
-    // XXX Aufgabe 7b)
+    // Aufgabe 7b)
     @Test
     public void testVoucher_belowOrEqualZero() {
         var exception1 = assertThrows(RuntimeException.class, () -> {
@@ -67,7 +67,7 @@ public class PercentageVoucherTest {
         assertEquals(PercentageVoucher.errorMessageGreaterZero, exception2.getMessage());
     }
 
-    // XXX Aufgabe 7b)
+    // Aufgabe 7b)
     @Test
     public void testVoucher_greater50() {
         var exception1 = assertThrows(RuntimeException.class, () -> {
