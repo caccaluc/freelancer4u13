@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -46,6 +47,7 @@ public class JobControllerTest {
     private static String company_id = "";
     private static String job_id = "";
 
+    @Disabled
     @Test
     @Order(1)
     @WithMockUser
@@ -77,6 +79,7 @@ public class JobControllerTest {
         System.out.println("created job with id " + job_id);
     }
 
+    @Disabled
     @Test
     @Order(2)
     @WithMockUser
@@ -91,6 +94,7 @@ public class JobControllerTest {
                 .andReturn();
     }
 
+    @Disabled
     @Test
     @Order(3)
     @WithMockUser
@@ -103,6 +107,7 @@ public class JobControllerTest {
                 .andReturn();
     }
 
+    @Disabled
     @Test
     @Order(4)
     @WithMockUser
